@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Helmet } from 'react-helmet';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+import { ApolloProvider } from '@apollo/client';
+import client from './apollo/client';
+
+import backgroundTheme from './theme/themeContext';
+import HomePage from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={backgroundTheme}>
+        <Helmet>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Helmet>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
 
