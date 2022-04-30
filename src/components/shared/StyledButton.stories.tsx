@@ -8,7 +8,7 @@ export default {
   title: 'Shared/StyledButton',
   component: StyledButton,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundcolor: { control: 'backgroundcolour' },
   },
 } as ComponentMeta<typeof StyledButton>;
 
@@ -18,20 +18,20 @@ const Template: ComponentStory<typeof StyledButton> = (args) => (
 
 export const Blue = Template.bind({});
 Blue.args = {
-  colour: 'blue',
+  backgroundcolour: 'linear-gradient(45deg, #0000FF 30%, #5858FA 90%)',
 };
 
 export const Orange = Template.bind({});
 Orange.args = {
-  colour: 'orange',
+  backgroundcolour: 'orange',
 };
 
 export const Red = Template.bind({});
 Red.args = {
-  colour: 'red',
+  backgroundcolour: 'red',
 };
 
 export const Green = Template.bind({});
 Green.args = {
-  colour: 'green',
+  backgroundcolour: 'green',
 };

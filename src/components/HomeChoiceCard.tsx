@@ -1,48 +1,57 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import StyledButton from '../shared/StyledButton';
+import NewButton from './shared/NewButton';
 
-interface HomeChoiceCardProps {
-  topic: string;
+export interface HomeChoiceCardProps {
+  id?: string;
+  title: string;
   imageURL: string;
   buttonColour: string;
 }
 
-const HomeChoiceCard = ({
-  topic,
+export const HomeChoiceCard = ({
+  title,
   imageURL,
   buttonColour,
 }: HomeChoiceCardProps) => {
+  const hexRegEx = /#(?:[0-9a-fA-F]{3}){1,2}/g;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const extractedHexCodes = buttonColour.match(hexRegEx)!;
+
   return (
     <Card
       sx={{
-        width: '300px',
+        width: '18.75rem',
         position: 'relative',
-        height: '450px',
+        height: '28.125rem',
         borderRadius: '20px',
+        textAlign: 'center',
+        transition: 'all 0.3s ease 0s',
+        '&:hover': {
+          transform: 'translateY(-7px)',
+          boxShadow: `0px 8px 25px ${extractedHexCodes[1]}`,
+        },
       }}
     >
-      <CardContent sx={{ textAlign: 'center' }}>
+      <CardContent>
         <Typography variant="h5" component="div">
-          {topic}
+          {title}
         </Typography>
       </CardContent>
       <CardMedia component="img" image={imageURL} />
       <CardActions sx={{ justifyContent: 'center' }}>
-        <StyledButton
-          colour={buttonColour}
-          sx={{ position: 'absolute', bottom: '20px' }}
+        <NewButton
+          primarycolor={buttonColour}
+          href={`/quiz/${title}`}
+          sx={{ position: 'absolute', bottom: '30px' }}
         >
           Begin Quiz
-        </StyledButton>
+        </NewButton>
       </CardActions>
     </Card>
   );
 };
-
-export default HomeChoiceCard;
