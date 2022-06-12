@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# A simple quiz application with 3 topics to choose from- Star Wars, Formula 1 and Marvel Movies.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live demo available here: https://tsquizproject.netlify.app/
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/10779091/173256398-62cfea67-5c3a-4570-bbf8-af63e931b441.png)
 
-In the project directory, you can run:
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+This is just a simple project I made to help gain more experience with technologies that I'm interested in.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I started out by watching a youtube [tutorial](https://www.youtube.com/watch?v=Gu1so3pz4bA) on how to use figma and then tried to create some designs of my own, which you can view online [here](https://www.figma.com/file/xExvPHoxMmn3JjIZI5fieI/Quiz-App?node-id=0%3A1). 
 
-### `npm test`
+Click this button:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/10779091/173256731-f9608977-f665-40f5-98ec-928098aaa2fa.png)
 
-### `npm run build`
+in the top left of the figma page to navigate through different pages of my designs.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I then started building the front-end using TypeScript and React, while also using [Storybook](https://storybook.js.org/) to help craft UI components. You can view my Storybook page online [here](https://tsquizproject-storybook.netlify.app/?path=/story/homepage-homecard--classical-music).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+I probably built around half of the front-end before starting work on the back-end, which you can see [here](https://github.com/joshua-hs/quizappbackend). Using GraphQL was probably overkill for this project, but I used it anyway just to gain some more experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Things I learned:
+Even though this project was rather simple, I believe I learned a fair amount on a few things such as:
+- Deeper understanding of React hooks
+- Reducers
+- Responsive design using MUI grid system
+- CSS animations
+- Node + GraphQL development
+- Using tools such as figma and Storybook
+- Using hosting providers
+- TypeScript and eslint configuration
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Complete list of technologies and services used:
 
-## Learn More
+- React.js
+- MUI
+- Node.js
+- TypeScript
+- GraphQL
+- Apollo
+- MongoDB
+- Mongoose
+- Figma
+- Storybook.js
+- AWS (S3 buckets)
+- Netlify
+- Heroku
+- ...and hella Google Search
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Thanks for reading!
