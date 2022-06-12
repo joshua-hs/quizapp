@@ -19,3 +19,31 @@ Silverstone.args = {
     'https://quizappimages.s3.eu-west-1.amazonaws.com/imagechoicecards/formula1/U2lsdmVyc3RvbmU.png',
   dispatch: () => {},
 };
+
+export const Nebula = Template.bind({});
+Nebula.args = {
+  imageURL:
+    'https://quizappimages.s3.eu-west-1.amazonaws.com/imagechoicecards/marvelmovies/bmVidWxh.jpg',
+  dispatch: () => {},
+};
+
+export const Ronan = Template.bind({});
+Ronan.args = {
+  imageURL:
+    'https://quizappimages.s3.eu-west-1.amazonaws.com/imagechoicecards/marvelmovies/cm9uYW4.webp',
+  dispatch: () => {},
+};
+
+export const Ahsoka = Template.bind({});
+Ahsoka.args = {
+  imageURL:
+    'https://quizappimages.s3.eu-west-1.amazonaws.com/imagechoicecards/starwars/QWhzb2th.webp',
+  dispatch: () => {},
+};
+
+export const Test = Template.bind({});
+Test.args = {
+  imageURL:
+    'https://static.wikia.nocookie.net/starwars/images/e/eb/WattoHS.jpg',
+  dispatch: () => {},
+};

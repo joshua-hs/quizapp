@@ -7,7 +7,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { ACTIONS } from '../reducers/QuizPageReducer';
 import { TrueFalseQuestionCardProps } from './TrueFalseQuestionCard';
 
@@ -22,7 +22,9 @@ export default function MultipleChoiceQuestionCard({
   answers,
   dispatch,
 }: MultipleChoiceQuestionCardProps) {
+  const [isAnswered, setIsAnswered] = useState(false);
   function handleClick(cardIndex: number, value: string) {
+    setIsAnswered(true);
     dispatch({
       type: ACTIONS.SET_VISIBLE_QUESTIONS_ANSWERED,
       payload: { cardIndex },
@@ -36,10 +38,13 @@ export default function MultipleChoiceQuestionCard({
   return (
     <Card
       sx={{
-        width: '18.75rem',
+        maxWidth: '18.75rem',
+        minWidth: '12rem',
         position: 'relative',
         height: '28.125rem',
         borderRadius: '20px',
+        transition: 'all 0.5s ease 0s',
+        filter: isAnswered ? 'brightness(60%)' : 'brightness(100%)',
       }}
     >
       <CardContent sx={{ textAlign: 'center', paddingTop: 'auto' }}>
@@ -73,6 +78,7 @@ export default function MultipleChoiceQuestionCard({
             return (
               <Grid item xs={12}>
                 <Button
+                  disabled={isAnswered}
                   variant="contained"
                   sx={{
                     width: '16rem',

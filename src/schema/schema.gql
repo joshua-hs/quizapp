@@ -32,6 +32,7 @@ type QuizAttempt {
   topic: String!
   score: Int!
   answers: [Answers!]!
+  statements: [String!]!
   createdAt: String!
 }
 input CreateHomeCardInput {

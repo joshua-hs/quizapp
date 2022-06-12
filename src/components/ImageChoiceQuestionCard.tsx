@@ -1,10 +1,9 @@
 /* eslint-disable no-nested-ternary */
-import React, { useState } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import { Box, CircularProgress, Divider } from '@mui/material';
 import { ACTIONS } from '../reducers/QuizPageReducer';
 
 export interface ImageChoiceCardProps {
@@ -20,15 +19,9 @@ export const ImageChoiceQuestionCard = ({
   answer,
   dispatch,
 }: ImageChoiceCardProps) => {
-  const [loaded, setLoaded] = useState(false);
-  // let imageToDisplay;
-  // fetch(imageURL)
-  //   .then((response) => response.blob())
-  //   .then((imageBlob) => {
-  //     imageToDisplay = URL.createObjectURL(imageBlob);
-  //   });
+  // The images I'm using for the Formula1 image questions are smaller and need to be given a bit of marginTop in order to look nice. The images for other topics need to fill the entire card, hence why I'm creating this boolean variable and using it within the sx prop of the CardMedia component.
+  const isFormula1Image = imageURL.includes('formula1');
   function handleClick() {
-    setLoaded(false);
     dispatch({
       type: ACTIONS.SET_ALL_VISIBLE_QUESTIONS_ANSWERED,
     });
@@ -48,27 +41,20 @@ export const ImageChoiceQuestionCard = ({
       }}
     >
       <>
-        {!loaded && (
-          <Box sx={{ justifyContent: 'center', alignItems: 'center' }}>
-            <CircularProgress color="inherit" />
-          </Box>
-        )}
         <CardMedia
           component="img"
           image={imageURL}
-          sx={{ marginTop: '40%', display: loaded ? '' : 'none' }}
-          onLoad={() => setLoaded(true)}
-        />
-        <Divider
-          absolute
-          sx={{ width: '90%', margin: '0 16px', bottom: '130px' }}
+          sx={{
+            height: isFormula1Image ? 'auto' : '100%',
+            marginTop: isFormula1Image ? '35%' : '0',
+          }}
         />
         <CardActions sx={{ justifyContent: 'center' }}>
           <Button
             onClick={() => handleClick()}
             variant="contained"
             size="large"
-            sx={{ marginTop: '20%' }}
+            sx={{ position: 'absolute', bottom: '50px' }}
           >
             Confirm
           </Button>

@@ -35,7 +35,9 @@ export const ATTEMPT_QUIZ = gql`
         question
         userAnswer
         userWasCorrect
+        correctAnswer
       }
+      statements
     }
   }
 `;

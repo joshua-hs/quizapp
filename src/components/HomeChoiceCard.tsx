@@ -24,6 +24,7 @@ export const HomeChoiceCard = ({
 
   return (
     <Card
+      className="homechoicecard"
       sx={{
         width: '18.75rem',
         position: 'relative',
@@ -32,6 +33,10 @@ export const HomeChoiceCard = ({
         textAlign: 'center',
         transition: 'all 0.3s ease 0s',
         '&:hover': {
+          transform: 'translateY(-7px)',
+          boxShadow: `0px 8px 25px ${extractedHexCodes[1]}`,
+        },
+        '&.hover': {
           transform: 'translateY(-7px)',
           boxShadow: `0px 8px 25px ${extractedHexCodes[1]}`,
         },

@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   CardActions,
@@ -40,15 +39,16 @@ export default function TrueFalseQuestionCard({
   return (
     <Card
       sx={{
-        width: '18.75rem',
+        maxWidth: '18.75rem',
+        minWidth: '12rem',
         position: 'relative',
         height: '28.125rem',
         borderRadius: '20px',
-        transition: 'all 0.3s ease 0s',
-        filter: isAnswered ? 'brightness(70%)' : 'brightness(100%)',
+        transition: 'all 0.5s ease 0s',
+        filter: isAnswered ? 'brightness(60%)' : 'brightness(100%)',
       }}
     >
-      <CardContent sx={{ textAlign: 'center', paddingTop: '70px' }}>
+      <CardContent sx={{ textAlign: 'center', paddingTop: 'auto' }}>
         <Typography
           variant="h5"
           component="div"
@@ -62,49 +62,42 @@ export default function TrueFalseQuestionCard({
         sx={{ width: '90%', margin: '0 16px', bottom: '180px' }}
       />
       <CardActions>
-        <Box
+        <Grid
           sx={{
-            background:
-              'linear-gradient(153deg, rgba(95,198,255,1) 0%, rgba(255,100,244,0.9976365546218487) 100%);',
+            position: 'absolute',
+            bottom: '80px',
+            left: '0px',
+            textAlign: 'center',
           }}
+          container
+          rowSpacing={3}
         >
-          <Grid
-            sx={{
-              position: 'absolute',
-              bottom: '80px',
-              left: '0px',
-              textAlign: 'center',
-            }}
-            container
-            rowSpacing={3}
-          >
-            <Grid item xs={6}>
-              <Button
-                disabled={isAnswered}
-                variant="contained"
-                size="large"
-                sx={{ width: '7rem', height: '3rem', background: '#2196F3' }}
-                startIcon={<DoneIcon />}
-                onClick={() => handleClick(index, 'true')}
-              >
-                True
-              </Button>
-            </Grid>
-            <Grid item xs={6}>
-              <Button
-                disabled={isAnswered}
-                variant="contained"
-                color="error"
-                size="large"
-                sx={{ width: '7rem', height: '3rem', background: '#E10050' }}
-                endIcon={<CloseIcon />}
-                onClick={() => handleClick(index, 'false')}
-              >
-                False
-              </Button>
-            </Grid>
+          <Grid item xs={6}>
+            <Button
+              disabled={isAnswered}
+              variant="contained"
+              size="large"
+              sx={{ width: '7rem', height: '3rem', background: '#2196F3' }}
+              startIcon={<DoneIcon />}
+              onClick={() => handleClick(index, 'true')}
+            >
+              True
+            </Button>
           </Grid>
-        </Box>
+          <Grid item xs={6}>
+            <Button
+              disabled={isAnswered}
+              variant="contained"
+              color="error"
+              size="large"
+              sx={{ width: '7rem', height: '3rem', background: '#E10050' }}
+              endIcon={<CloseIcon />}
+              onClick={() => handleClick(index, 'false')}
+            >
+              False
+            </Button>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   );

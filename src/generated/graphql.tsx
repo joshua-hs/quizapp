@@ -146,6 +146,7 @@ export type QuizAttempt = {
   createdAt: Scalars['String'];
   id: Scalars['ID'];
   score: Scalars['Int'];
+  statements: Array<Scalars['String']>;
   topic: Scalars['String'];
 };
 

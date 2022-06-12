@@ -1,0 +1,15 @@
+.carousel__slide-focus-ring {
+  display: none;
+}
+
+.buttonBack___1mlaL, .buttonNext___2mOCa {
+  background-color: #ededed;
+  border: none;
+  margin: auto;
+  height: auto;
+  transition: 'all 0.3s ease 0s';
+}
+
+.hidden {
+  visibility: hidden;
+}

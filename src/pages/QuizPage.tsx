@@ -1,42 +1,54 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
+import { keyframes } from '@mui/material/styles';
 import {
   ACTIONS,
   quizPageReducer,
   obtainQuizPageInitialState,
 } from '../reducers/QuizPageReducer';
-import QuizCardRow from '../containers/QuizCardRow';
-import {
-  TrueFalseCard,
-  MultipleChoiceCard,
-  ImageChoiceCard,
-} from '../generated/graphql';
 import { GET_QUIZ_CARDS } from '../queries';
 import Loader from '../components/shared/Loader';
+import QuizCarousel from '../components/shared/QuizCarousel';
+import 'animate.css';
 
 const QuizPage = () => {
   const { topic } = useParams();
 
+  const topicStringNoWhiteSpace = topic?.toLowerCase().replace(/ /g, '');
+
   const navigate = useNavigate();
+
+  const forwardNavigationButton: HTMLElement = document.getElementById(
+    'forwardNavigationButton'
+  )!;
+
+  const animationEffect = keyframes`
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  
+  50% {
+    filter: hue-rotate(-90deg);
+  }
+  
+  100% {
+    filter: hue-rotate(0deg);
+  }`;
 
   const [quizState, dispatch] = useReducer(
     quizPageReducer,
     obtainQuizPageInitialState(topic)
   );
 
-  const [cursorIncrementor, setCursorIncrementor] = useState(3);
-
-  const { quizSection, questionCursor, visibleQuestionsAnswered } = quizState;
-
-  useEffect(() => {
-    if (quizSection === 2) {
-      setCursorIncrementor(1);
-    }
-  }, [quizSection]);
+  const {
+    questionCursor,
+    maxQuestionCursorAchieved,
+    visibleQuestionsAnswered,
+  } = quizState;
 
   function navigateToResultsPage() {
     const { userAnswersPayload } = quizState;
@@ -47,78 +59,86 @@ const QuizPage = () => {
   useEffect(() => {
     if (!Object.values(visibleQuestionsAnswered).includes(false)) {
       dispatch({
-        type: ACTIONS.SET_QUESTION_CURSOR,
-        payload: { newQuestionCursor: questionCursor + cursorIncrementor },
+        type: ACTIONS.INCREMENT_MAX_QUESTION_CURSOR_ACHIEVED,
+      });
+      dispatch({
+        type: ACTIONS.INCREMENT_QUESTION_CURSOR,
       });
       dispatch({ type: ACTIONS.RESET_VISIBLE_QUESTIONS_ANSWERED });
+
+      forwardNavigationButton.click();
     }
   }, [visibleQuestionsAnswered]);
-
-  function getCurrentQuestions(
-    fullQuestions: TrueFalseCard[] | MultipleChoiceCard[]
-  ): TrueFalseCard[] | MultipleChoiceCard[] {
-    return fullQuestions.slice(
-      questionCursor,
-      questionCursor + cursorIncrementor
-    );
-  }
 
   const { loading, error, data } = useQuery(GET_QUIZ_CARDS, {
     variables: { topic },
   });
 
   if (loading) return <Loader />;
-  if (error) return <p>Error : {error.message}</p>;
-
-  if (quizSection === 3) {
-    navigateToResultsPage();
-    return <p>Calculating results...</p>;
-  }
+  if (error) return <p>Error :{error.message}</p>;
 
   const questionsArray = [
-    data.getTrueFalseCards,
-    data.getMultipleChoiceCards,
-    data.getImageChoiceCards,
+    ...data.getTrueFalseCards,
+    ...data.getMultipleChoiceCards,
+    ...data.getImageChoiceCards,
   ];
 
-  const numberOfQuestionsInSection = questionsArray[quizSection].length;
-
-  const currentQuestions = getCurrentQuestions(questionsArray[quizSection]);
-
-  function updateQuizSection() {
-    dispatch({ type: ACTIONS.RESET_VISIBLE_QUESTIONS_ANSWERED });
-    dispatch({
-      type: ACTIONS.SET_QUESTION_CURSOR,
-      payload: { newQuestionCursor: 0 },
-    });
-    dispatch({ type: ACTIONS.SET_QUIZ_SECTION });
+  // This means that the user has answered all questions and should thus be taken to the results page
+  if (quizState.userAnswersPayload.answers.length === questionsArray.length) {
+    navigateToResultsPage();
   }
-
-  if (questionCursor === numberOfQuestionsInSection) {
-    updateQuizSection();
-  }
-
-  console.log(currentQuestions);
-  console.log('cursor: ', questionCursor);
-  console.log('image question data: ', questionsArray[2]);
 
   return (
     <Grid
       container
-      spacing={4}
       sx={{
-        paddingTop: '22vh',
         justifyContent: 'center',
         alignItems: 'center',
+        minHeight: '100vh',
+        maxHeight: '100%',
+        marginTop: '-3rem',
+        overflow: 'hidden',
       }}
     >
-      {currentQuestions && (
-        <QuizCardRow
-          currentQuestions={currentQuestions}
-          dispatch={dispatch}
-          quizSection={quizSection}
-          topic={topic}
-        />
+      <Grid
+        className="fadeIn"
+        item
+        xs={12}
+        textAlign="center"
+        marginTop={{ xs: '4rem', lg: '2.5rem' }}
+      >
+        <Typography variant="h4" sx={{ fontWeight: 'medium', mb: 3 }}>
+          You are answering questions about...
+        </Typography>
+        <Typography
+          borderRadius="8px"
+          component="span"
+          variant="h3"
+          sx={{
+            animation: `${animationEffect} 5s linear infinite alternate`,
+            background:
+              'linear-gradient(to right bottom, rgb(194, 93, 255), rgb(255, 214, 93));',
+            padding: '0px 20px calc(4px)',
+          }}
+        >
+          {topic}
+        </Typography>
+      </Grid>
+      {questionsArray && topicStringNoWhiteSpace && (
+        <Grid
+          className="animate__animated animate__fadeInUp"
+          item
+          xs={12}
+          sx={{ paddingBottom: '6rem' }}
+        >
+          <QuizCarousel
+            questionCursor={questionCursor}
+            maxQuestionCursorAchieved={maxQuestionCursorAchieved}
+            quizQuestions={questionsArray}
+            dispatch={dispatch}
+            topic={topicStringNoWhiteSpace}
+          />
+        </Grid>
       )}
     </Grid>
   );
