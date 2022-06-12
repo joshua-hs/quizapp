@@ -16,7 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "include": ["src", "**/*.ts", "**/*.tsx", ".storybook/fakedata.ts"],
   "paths": {
     "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
   }

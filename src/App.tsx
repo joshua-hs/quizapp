@@ -6,9 +6,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import { ApolloProvider } from '@apollo/client';
 import client from './apollo/client';
 import theme from './theme/themeContext';
-import HomePage from './pages/HomePage';
-import QuizPage from './pages/QuizPage';
-import ResultsPage from './pages/ResultsPage';
+import HomePage from './pages/home/HomePage';
+import QuizPage from './pages/quiz/QuizPage';
+import ResultsPage from './pages/results/ResultsPage';
 
 function App() {
   return (
