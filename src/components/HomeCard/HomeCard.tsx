@@ -19,7 +19,7 @@ export function HomeCard({ title, imageURL, buttonColour }: HomeCardProps) {
 
   return (
     <Card
-      className="homechoicecard"
+      className="homeCard"
       sx={{
         width: '18.75rem',
         position: 'relative',

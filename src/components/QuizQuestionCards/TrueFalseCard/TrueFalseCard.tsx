@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   CardActions,
@@ -9,6 +10,7 @@ import {
 } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
+import LockIcon from '@mui/icons-material/Lock';
 import React, { useState } from 'react';
 import { ACTIONS } from '../../../reducers/QuizPageReducer';
 
@@ -45,9 +47,20 @@ export function TrueFalseCard({
         height: '28.125rem',
         borderRadius: '20px',
         transition: 'all 0.5s ease 0s',
-        filter: isAnswered ? 'brightness(60%)' : 'brightness(100%)',
+        filter: isAnswered ? 'brightness(30%)' : 'brightness(100%)',
       }}
     >
+      {isAnswered && (
+        <Box display="flex" justifyContent="center">
+          <LockIcon
+            sx={{
+              mt: '50%',
+              fontSize: '5rem',
+              position: 'absolute',
+            }}
+          />
+        </Box>
+      )}
       <CardContent sx={{ textAlign: 'center', paddingTop: 'auto' }}>
         <Typography
           variant="h5"

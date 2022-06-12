@@ -8,6 +8,7 @@ import { GET_HOME_CARDS } from '../../graphql/queries';
 import { LoadingIndicator } from '../../components/LoadingIndicator';
 import './homeStyles.css';
 import Footer from '../../components/Footer/Footer';
+import { GradientText } from '../../components/GradientText';
 
 export function HomePage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -16,9 +17,10 @@ export function HomePage() {
     setWindowWidth(window.innerWidth);
   }
 
+  const { loading, error, data } = useQuery(GET_HOME_CARDS);
+
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-
     // Checks whether the user is viewing the app from a device with a small screen size and if so uses the IntersectionObserver api to apply the same hover effect as you'd get on desktop when hovering your mouse over one of the HomeCard elements (users on touch screen devices don't have a cursor to hover over the elements with, so we need to replicate this functionality somehow. The intersection observer basically checks whether an element is in view, and if it is, we apply the same CSS as if you're hovering over it)
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,7 +37,7 @@ export function HomePage() {
       }
     );
 
-    const cards = Array.from(document.getElementsByClassName('homechoicecard'));
+    const cards = Array.from(document.getElementsByClassName('homeCard'));
 
     cards.forEach((card) => {
       observer.observe(card);
@@ -44,33 +46,35 @@ export function HomePage() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [windowWidth]);
-
-  const { loading, error, data } = useQuery(GET_HOME_CARDS);
+  }, [windowWidth, data]);
 
   if (loading) return <LoadingIndicator />;
   if (error) return <p>Error : {error.message}</p>;
 
-  const cardData = data.getHomeCards;
+  // There is one more quiz topic I am planning to implement (classical music) but the questions aren't ready yet, hence why I am slicing the array below to exclude it.
+  const cardData = data.getHomeCards.slice(0, 3);
 
   return (
     <Grid
       container
       rowSpacing={5}
       sx={{
-        paddingTop: '10vh',
+        paddingTop: '5vh',
         minHeight: '100vh',
         maxHeight: '100%',
         justifyContent: 'center',
       }}
     >
-      <Grid item>
-        <canvas id="gradient-canvas" data-transition-in />
+      <Grid item xs={10} lg={7} justifyContent="center" textAlign="center">
+        <Typography component="span" variant="h3">
+          Welcome! Choose a <GradientText>quiz</GradientText> below to get
+          started.
+        </Typography>
       </Grid>
       <Grid
         className="fadeIn"
         container
-        spacing={5}
+        spacing={9}
         sx={{ paddingTop: '8vh', justifyContent: 'center' }}
       >
         <HomeCardRow cardData={cardData} />

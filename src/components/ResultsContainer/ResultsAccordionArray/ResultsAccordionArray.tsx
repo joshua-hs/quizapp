@@ -17,6 +17,8 @@ export function ResultsAccordionArray({
     for (let i = 0; i < results.length; i += 1) {
       const { question, userAnswer, correctAnswer, userWasCorrect } =
         results[i];
+      const shouldDarken =
+        question !== selectedQuestion && selectedQuestion !== '';
       resultAccordionArrayToReturn.push(
         <ResultAccordion
           question={question}
@@ -25,9 +27,7 @@ export function ResultsAccordionArray({
           userWasCorrect={userWasCorrect}
           statement={statements[i]}
           setSelectedQuestion={setSelectedQuestion}
-          shouldDarken={
-            question !== selectedQuestion && selectedQuestion !== ''
-          }
+          shouldDarken={shouldDarken}
         />
       );
     }
