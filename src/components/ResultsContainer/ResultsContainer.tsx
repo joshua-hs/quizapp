@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
-import ResultsAccordionArray from './ResultsAccordionArray/ResultsAccordionArray';
+import { ResultsAccordionArray } from './ResultsAccordionArray';
 import { Answers } from '../../generated/graphql';
 
 export interface ResultsContainerProps {
@@ -9,7 +9,7 @@ export interface ResultsContainerProps {
   score: number;
 }
 
-export default function ResultsContainer({
+export function ResultsContainer({
   results,
   statements,
   score,

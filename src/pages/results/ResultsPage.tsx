@@ -4,10 +4,10 @@ import React, { useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { useLocation } from 'react-router';
 import ATTEMPT_QUIZ from '../../graphql/mutations';
-import ResultsContainer from '../../components/ResultsContainer/ResultsContainer';
-import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
+import { ResultsContainer } from '../../components/ResultsContainer';
+import { LoadingIndicator } from '../../components/LoadingIndicator';
 
-export default function ResultsPage() {
+export function ResultsPage() {
   const { state }: any = useLocation();
 
   const [attemptQuiz, { loading, error, data }] = useMutation(ATTEMPT_QUIZ, {

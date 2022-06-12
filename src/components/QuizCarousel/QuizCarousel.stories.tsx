@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { questionData } from '../../../.storybook/fakeData';
 import './styles.css';
-import QuizCarousel from './QuizCarousel';
+import { QuizCarousel } from '.';
 
 export default {
   title: 'Shared/QuizCarousel',

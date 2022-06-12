@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ImageChoiceCard } from './ImageChoiceCard';
+import { ImageChoiceCard } from '..';
 
 export default {
   title: 'Quizpage/ImageChoiceCard',

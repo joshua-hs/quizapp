@@ -3,7 +3,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Typography, Stack } from '@mui/material';
 
-export default function SimpleBackdrop() {
+export function LoadingIndicator() {
   return (
     <div>
       <Backdrop

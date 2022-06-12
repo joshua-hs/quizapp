@@ -1,15 +1,15 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import QuizQuestionCard from './MultipleChoiceCard';
+import { MultipleChoiceCard } from '..';
 
 export default {
   title: 'Quizpage/MultipleChoiceCard',
-  component: QuizQuestionCard,
-} as ComponentMeta<typeof QuizQuestionCard>;
+  component: MultipleChoiceCard,
+} as ComponentMeta<typeof MultipleChoiceCard>;
 
-const Template: ComponentStory<typeof QuizQuestionCard> = (args) => (
-  <QuizQuestionCard {...args} />
+const Template: ComponentStory<typeof MultipleChoiceCard> = (args) => (
+  <MultipleChoiceCard {...args} />
 );
 
 // Template.bind({}) just copies template function above

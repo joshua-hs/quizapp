@@ -6,7 +6,7 @@ export type HomeCardRowProps = {
   cardData: HomeCardProps[];
 };
 
-const HomeCardRow = ({ cardData }: HomeCardRowProps) => {
+export function HomeCardRow({ cardData }: HomeCardRowProps) {
   return (
     <>
       {cardData.map((card: HomeCardProps) => (
@@ -20,6 +20,6 @@ const HomeCardRow = ({ cardData }: HomeCardRowProps) => {
       ))}
     </>
   );
-};
+}
 
 export default HomeCardRow;

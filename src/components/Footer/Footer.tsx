@@ -40,7 +40,7 @@ export default function Footer() {
                 },
               }}
             >
-              <a href={href}>
+              <a target="_blank" rel="noopener noreferrer" href={href}>
                 <Logo
                   style={{
                     paddingTop: '0.5rem',

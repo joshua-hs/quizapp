@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ResultsContainer from './ResultsContainer';
+import { ResultsContainer } from '.';
 import { resultsData } from '../../../.storybook/fakeData';
 
 export default {

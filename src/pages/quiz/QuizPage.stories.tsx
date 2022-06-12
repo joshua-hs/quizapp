@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import QuizPage from './QuizPage';
+import { QuizPage } from '..';
 
 export default {
   title: 'Quizpage/QuizPage',

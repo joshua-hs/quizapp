@@ -10,16 +10,18 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Box, Stack, Typography } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import TrueFalseCard from '../QuizQuestionCards/TrueFalseCard/TrueFalseCard';
+import {
+  ImageChoiceCard,
+  MultipleChoiceCard,
+  TrueFalseCard,
+} from '../QuizQuestionCards';
 import {
   ImageChoiceCard as ImageChoiceCardType,
   MultipleChoiceCard as MultipleChoiceCardType,
   TrueFalseCard as TrueFalseCardType,
 } from '../../generated/graphql';
-import MultipleChoiceCard from '../QuizQuestionCards/MultipleChoiceCard/MultipleChoiceCard';
 import './quizCarouselStyles.css';
 import { ACTIONS } from '../../reducers/QuizPageReducer';
-import { ImageChoiceCard } from '../QuizQuestionCards/ImageChoiceCard/ImageChoiceCard';
 
 interface QuizCarouselProps {
   quizQuestions: any[];
@@ -29,7 +31,7 @@ interface QuizCarouselProps {
   topic: string;
 }
 
-export default function QuizCarousel({
+export function QuizCarousel({
   quizQuestions,
   dispatch,
   questionCursor,

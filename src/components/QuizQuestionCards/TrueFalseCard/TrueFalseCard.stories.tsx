@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TrueFalseCard from './TrueFalseCard';
+import { TrueFalseCard } from '..';
 
 export default {
   title: 'Quizpage/TrueFalseQuestionCard',

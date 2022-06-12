@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ResultAccordion from './ResultAccordion/ResultAccordion';
+import { ResultAccordion } from './ResultAccordion';
 import { Answers } from '../../../generated/graphql';
 
 export interface ResultsAccordionArrayProps {
@@ -7,7 +7,7 @@ export interface ResultsAccordionArrayProps {
   statements: string[];
 }
 
-export default function ResultsAccordionArray({
+export function ResultsAccordionArray({
   results,
   statements,
 }: ResultsAccordionArrayProps) {

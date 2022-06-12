@@ -2,7 +2,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import LoadingIndicator from './LoadingIndicator';
+import { LoadingIndicator } from '.';
 
 export default {
   title: 'Shared/LoadingIndicator',

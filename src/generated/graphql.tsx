@@ -157,6 +157,26 @@ export type TrueFalseCard = {
   topic: Scalars['String'];
 };
 
+export type CreateQuizAttemptMutationVariables = Exact<{
+  newQuizAttempt: CreateQuizAttemptInput;
+}>;
+
+export type CreateQuizAttemptMutation = {
+  __typename?: 'Mutation';
+  createQuizAttempt: {
+    __typename?: 'QuizAttempt';
+    score: number;
+    statements: Array<string>;
+    answers: Array<{
+      __typename?: 'Answers';
+      question: string;
+      userAnswer: string;
+      userWasCorrect: boolean;
+      correctAnswer: string;
+    }>;
+  };
+};
+
 export type GetHomeCardsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetHomeCardsQuery = {
@@ -192,24 +212,63 @@ export type GetQuestionCardsQuery = {
   } | null>;
 };
 
-export type CreateQuizAttemptMutationVariables = Exact<{
-  newQuizAttempt: CreateQuizAttemptInput;
-}>;
+export const CreateQuizAttemptDocument = gql`
+  mutation createQuizAttempt($newQuizAttempt: CreateQuizAttemptInput!) {
+    createQuizAttempt(newQuizAttempt: $newQuizAttempt) {
+      score
+      answers {
+        question
+        userAnswer
+        userWasCorrect
+        correctAnswer
+      }
+      statements
+    }
+  }
+`;
+export type CreateQuizAttemptMutationFn = Apollo.MutationFunction<
+  CreateQuizAttemptMutation,
+  CreateQuizAttemptMutationVariables
+>;
 
-export type CreateQuizAttemptMutation = {
-  __typename?: 'Mutation';
-  createQuizAttempt: {
-    __typename?: 'QuizAttempt';
-    score: number;
-    answers: Array<{
-      __typename?: 'Answers';
-      question: string;
-      userAnswer: string;
-      userWasCorrect: boolean;
-    }>;
-  };
-};
-
+/**
+ * __useCreateQuizAttemptMutation__
+ *
+ * To run a mutation, you first call `useCreateQuizAttemptMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateQuizAttemptMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createQuizAttemptMutation, { data, loading, error }] = useCreateQuizAttemptMutation({
+ *   variables: {
+ *      newQuizAttempt: // value for 'newQuizAttempt'
+ *   },
+ * });
+ */
+export function useCreateQuizAttemptMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    CreateQuizAttemptMutation,
+    CreateQuizAttemptMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    CreateQuizAttemptMutation,
+    CreateQuizAttemptMutationVariables
+  >(CreateQuizAttemptDocument, options);
+}
+export type CreateQuizAttemptMutationHookResult = ReturnType<
+  typeof useCreateQuizAttemptMutation
+>;
+export type CreateQuizAttemptMutationResult =
+  Apollo.MutationResult<CreateQuizAttemptMutation>;
+export type CreateQuizAttemptMutationOptions = Apollo.BaseMutationOptions<
+  CreateQuizAttemptMutation,
+  CreateQuizAttemptMutationVariables
+>;
 export const GetHomeCardsDocument = gql`
   query getHomeCards {
     getHomeCards {
@@ -335,59 +394,4 @@ export type GetQuestionCardsLazyQueryHookResult = ReturnType<
 export type GetQuestionCardsQueryResult = Apollo.QueryResult<
   GetQuestionCardsQuery,
   GetQuestionCardsQueryVariables
->;
-export const CreateQuizAttemptDocument = gql`
-  mutation createQuizAttempt($newQuizAttempt: CreateQuizAttemptInput!) {
-    createQuizAttempt(newQuizAttempt: $newQuizAttempt) {
-      score
-      answers {
-        question
-        userAnswer
-        userWasCorrect
-      }
-    }
-  }
-`;
-export type CreateQuizAttemptMutationFn = Apollo.MutationFunction<
-  CreateQuizAttemptMutation,
-  CreateQuizAttemptMutationVariables
->;
-
-/**
- * __useCreateQuizAttemptMutation__
- *
- * To run a mutation, you first call `useCreateQuizAttemptMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateQuizAttemptMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createQuizAttemptMutation, { data, loading, error }] = useCreateQuizAttemptMutation({
- *   variables: {
- *      newQuizAttempt: // value for 'newQuizAttempt'
- *   },
- * });
- */
-export function useCreateQuizAttemptMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    CreateQuizAttemptMutation,
-    CreateQuizAttemptMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    CreateQuizAttemptMutation,
-    CreateQuizAttemptMutationVariables
-  >(CreateQuizAttemptDocument, options);
-}
-export type CreateQuizAttemptMutationHookResult = ReturnType<
-  typeof useCreateQuizAttemptMutation
->;
-export type CreateQuizAttemptMutationResult =
-  Apollo.MutationResult<CreateQuizAttemptMutation>;
-export type CreateQuizAttemptMutationOptions = Apollo.BaseMutationOptions<
-  CreateQuizAttemptMutation,
-  CreateQuizAttemptMutationVariables
 >;

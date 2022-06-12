@@ -13,12 +13,12 @@ export interface ImageChoiceCardProps {
   dispatch: Function;
 }
 
-export const ImageChoiceCard = ({
+export function ImageChoiceCard({
   imageURL,
   question,
   answer,
   dispatch,
-}: ImageChoiceCardProps) => {
+}: ImageChoiceCardProps) {
   // The images I'm using for the Formula1 image questions are smaller and need to be given a bit of marginTop in order to look nice. The images for other topics need to fill the entire card, hence why I'm creating this boolean variable and using it within the sx prop of the CardMedia component.
   const isFormula1Image = imageURL.includes('formula1');
   function handleClick() {
@@ -62,4 +62,4 @@ export const ImageChoiceCard = ({
       </>
     </Card>
   );
-};
+}

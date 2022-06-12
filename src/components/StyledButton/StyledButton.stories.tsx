@@ -2,7 +2,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyledButton from './StyledButton';
+import { StyledButton } from '.';
 
 export default {
   title: 'Shared/StyledButton',

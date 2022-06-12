@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ResultAccordion from './ResultAccordion';
+import { ResultAccordion } from '.';
 
 export default {
   title: 'ResultsPage/ResultAccordion',

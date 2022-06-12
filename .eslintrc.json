@@ -40,6 +40,7 @@
         "devDependencies": ["**/*.stories.tsx"]
       }
     ],
-    "import/extensions": [0, 0, 0, 0]
+    "import/extensions": [0, 0, 0, 0],
+    "import/prefer-default-export": 0
   }
 }

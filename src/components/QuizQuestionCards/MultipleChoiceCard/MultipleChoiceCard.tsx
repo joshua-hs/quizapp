@@ -15,7 +15,7 @@ export interface MultipleChoiceCardProps extends TrueFalseCardProps {
   answers: string[];
 }
 
-export default function MultipleChoiceCard({
+export function MultipleChoiceCard({
   index,
   question,
   answers,

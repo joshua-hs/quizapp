@@ -34,3 +34,12 @@
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+#gradient-canvas {
+  width:100%;
+  height:100%;
+  --gradient-color-1: #a347ff; 
+  --gradient-color-2: #ff2e77; 
+  --gradient-color-3: #ff7e47;  
+  --gradient-color-4: #48dafe;
+}

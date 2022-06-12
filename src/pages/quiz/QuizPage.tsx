@@ -1,21 +1,20 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useReducer } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { Grid, Typography } from '@mui/material';
-import { keyframes } from '@mui/material/styles';
 import {
   ACTIONS,
   quizPageReducer,
   obtainQuizPageInitialState,
 } from '../../reducers/QuizPageReducer';
 import { GET_QUIZ_CARDS } from '../../graphql/queries';
-import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
-import QuizCarousel from '../../components/QuizCarousel/QuizCarousel';
+import { LoadingIndicator } from '../../components/LoadingIndicator';
+import { QuizCarousel } from '../../components/QuizCarousel';
 import 'animate.css';
+import { GradientText } from '../../components/GradientText';
 
-const QuizPage = () => {
+export function QuizPage() {
   const { topic } = useParams();
 
   const topicStringNoWhiteSpace = topic?.toLowerCase().replace(/ /g, '');
@@ -25,19 +24,6 @@ const QuizPage = () => {
   const forwardNavigationButton: HTMLElement = document.getElementById(
     'forwardNavigationButton'
   )!;
-
-  const animationEffect = keyframes`
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  
-  50% {
-    filter: hue-rotate(-90deg);
-  }
-  
-  100% {
-    filter: hue-rotate(0deg);
-  }`;
 
   const [quizState, dispatch] = useReducer(
     quizPageReducer,
@@ -110,19 +96,7 @@ const QuizPage = () => {
         <Typography variant="h4" sx={{ fontWeight: 'medium', mb: 3 }}>
           You are answering questions about...
         </Typography>
-        <Typography
-          borderRadius="8px"
-          component="span"
-          variant="h3"
-          sx={{
-            animation: `${animationEffect} 5s linear infinite alternate`,
-            background:
-              'linear-gradient(to right bottom, rgb(194, 93, 255), rgb(255, 214, 93));',
-            padding: '0px 20px calc(4px)',
-          }}
-        >
-          {topic}
-        </Typography>
+        <GradientText>{topic}</GradientText>
       </Grid>
       {questionsArray && topicStringNoWhiteSpace && (
         <Grid
@@ -142,6 +116,4 @@ const QuizPage = () => {
       )}
     </Grid>
   );
-};
-
-export default QuizPage;
+}

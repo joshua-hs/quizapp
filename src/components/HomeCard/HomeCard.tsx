@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import StyledButton from '../StyledButton/StyledButton';
+import { StyledButton } from '../StyledButton';
 
 export interface HomeCardProps {
   id?: string;
@@ -13,7 +13,7 @@ export interface HomeCardProps {
   buttonColour: string;
 }
 
-export const HomeCard = ({ title, imageURL, buttonColour }: HomeCardProps) => {
+export function HomeCard({ title, imageURL, buttonColour }: HomeCardProps) {
   const hexRegEx = /#(?:[0-9a-fA-F]{3}){1,2}/g;
   const extractedHexCodes = buttonColour.match(hexRegEx)!;
 
@@ -54,4 +54,4 @@ export const HomeCard = ({ title, imageURL, buttonColour }: HomeCardProps) => {
       </CardActions>
     </Card>
   );
-};
+}

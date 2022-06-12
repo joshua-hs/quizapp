@@ -5,7 +5,7 @@ interface StyledButtonProps extends ButtonProps {
   primarycolor: string;
 }
 
-const StyledButton = styled(Button)(
+export const StyledButton = styled(Button)(
   ({ primarycolor: primaryColor }: StyledButtonProps) => ({
     background: primaryColor,
     borderRadius: '6px',
@@ -22,9 +22,3 @@ const StyledButton = styled(Button)(
     },
   })
 );
-
-// export default function NewButton({ color }: NewButtonProps) {
-//   return <Button sx={{ backgroundColor: color }} />;
-// }
-
-export default StyledButton;

@@ -17,7 +17,7 @@ export interface ResultAccordionProps {
   shouldDarken: boolean;
 }
 
-export default function ResultAccordion({
+export function ResultAccordion({
   question,
   userAnswer,
   correctAnswer,

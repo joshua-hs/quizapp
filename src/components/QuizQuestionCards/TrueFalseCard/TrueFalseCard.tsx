@@ -18,7 +18,7 @@ export interface TrueFalseCardProps {
   dispatch: Function;
 }
 
-export default function TrueFalseCard({
+export function TrueFalseCard({
   index,
   question,
   dispatch,

@@ -3,14 +3,13 @@ import Grid from '@mui/material/Grid';
 import { useQuery } from '@apollo/client';
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import HomeCardRow from '../../components/HomeCardRow/HomeCardRow';
+import { HomeCardRow } from '../../components/HomeCardRow';
 import { GET_HOME_CARDS } from '../../graphql/queries';
-import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
+import { LoadingIndicator } from '../../components/LoadingIndicator';
 import './homeStyles.css';
 import Footer from '../../components/Footer/Footer';
 
-const HomePage = () => {
-  // Real shoddy code I know, but it checks whether the user is viewing the app from a device with a small screen size and if so uses the IntersectionObserver api to apply the same hover effect as you'd get on desktop when hovering your mouse over one of the HomeChoiceCard elements (users on touch screen devices don't have a cursor to hover over the elements with, so we need to replicate this functionality somehow. The intersection observer basically checks whether an element is in view, and if it is, we apply the same CSS as if you're hovering over it)
+export function HomePage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   function handleResize() {
@@ -20,6 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     window.addEventListener('resize', handleResize);
 
+    // Checks whether the user is viewing the app from a device with a small screen size and if so uses the IntersectionObserver api to apply the same hover effect as you'd get on desktop when hovering your mouse over one of the HomeCard elements (users on touch screen devices don't have a cursor to hover over the elements with, so we need to replicate this functionality somehow. The intersection observer basically checks whether an element is in view, and if it is, we apply the same CSS as if you're hovering over it)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -58,17 +58,20 @@ const HomePage = () => {
       container
       rowSpacing={5}
       sx={{
-        paddingTop: '25vh',
+        paddingTop: '10vh',
         minHeight: '100vh',
         maxHeight: '100%',
         justifyContent: 'center',
       }}
     >
+      <Grid item>
+        <canvas id="gradient-canvas" data-transition-in />
+      </Grid>
       <Grid
         className="fadeIn"
         container
         spacing={5}
-        sx={{ justifyContent: 'center' }}
+        sx={{ paddingTop: '8vh', justifyContent: 'center' }}
       >
         <HomeCardRow cardData={cardData} />
       </Grid>
@@ -81,12 +84,17 @@ const HomePage = () => {
       >
         <Typography variant="h6" sx={{ margin: '0 4rem' }}>
           Fun fact: The above images were created by AI. Create your own{' '}
-          <a href="https://app.wombo.art/">here</a>.
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://app.wombo.art/"
+          >
+            here
+          </a>
+          .
         </Typography>
       </Grid>
       <Footer />
     </Grid>
   );
-};
-
-export default HomePage;
+}
