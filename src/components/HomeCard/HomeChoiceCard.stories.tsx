@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { HomeCard } from './HomeCard';
+import { HomeCard } from '.';
 
 export default {
   title: 'Homepage/HomeCard',

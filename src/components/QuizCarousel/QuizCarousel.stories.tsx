@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { questionData } from '../../../.storybook/fakeData';
-import './styles.css';
+import './quizCarouselStyles.css';
 import { QuizCarousel } from '.';
 
 export default {
@@ -19,12 +19,4 @@ Default.args = {
   dispatch: () => {},
   questionCursor: 0,
   maxQuestionCursorAchieved: 0,
-};
-
-export const ImageChoice = Template.bind({});
-ImageChoice.args = {
-  quizQuestions: [...questionData[2]],
-  dispatch: () => {},
-  questionCursor: 15,
-  maxQuestionCursorAchieved: 15,
 };

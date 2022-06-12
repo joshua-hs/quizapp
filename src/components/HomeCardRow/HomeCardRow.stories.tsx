@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Grid } from '@mui/material';
-import HomeCardRow from './HomeCardRow';
+import { HomeCardRow } from '.';
 
 export default {
   title: 'Homepage/HomeCardRow',
