@@ -52,15 +52,17 @@ export function QuizCarousel({
 
   const [imageChoiceQuestionsState, setImageChoiceQuestionsState] = useState(0);
 
+  const [imageChoiceQuestionString, setImageChoiceQuestionString] =
+    useState('');
+
   // Calculating how many slides we need to render in the CarouselProvider component (this is a necessary prop).
   const slidesToRender = useMemo(() => {
     let imageChoiceQuestions = 0;
-    let trueFalseOrMultipleChoiceQuestions = 0;
     quizQuestions.forEach((question) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      isImageChoiceCard(question)
-        ? (imageChoiceQuestions += 1)
-        : (trueFalseOrMultipleChoiceQuestions += 1);
+      if (isImageChoiceCard(question)) {
+        imageChoiceQuestions += 1;
+      }
     });
 
     setImageChoiceQuestionsState(imageChoiceQuestions);
@@ -74,11 +76,6 @@ export function QuizCarousel({
     type: ACTIONS.SET_SLIDES_TO_RENDER,
     payload: { slidesToRender },
   });
-
-  // This useEffect will make sure that users displaying the app on mobile devices (where the questions will appear in a vertical column) will be taken back to the top of the page after answering all questions on the page, meaning they don't have to manually scroll back up
-  useEffect(() => {
-    window.scrollTo({ behavior: 'smooth', top: 0 });
-  }, [questionCursor]);
 
   function trueFalseConstructor(quizQuestionsArrayIndex: number) {
     return quizQuestions
@@ -146,8 +143,12 @@ export function QuizCarousel({
           justifyContent="center"
           alignItems="center"
           paddingBottom="1rem"
+          paddingTop={{ lg: '4rem' }}
           position="relative"
-          marginTop={{ xs: '9rem', lg: '0rem' }}
+          marginTop={{
+            xs: imageChoiceQuestionString ? '9rem' : '2rem',
+            lg: '0rem',
+          }}
         >
           {isTrueFalseCard(currentQuestion) &&
             trueFalseConstructor(questionIndex)}
@@ -175,16 +176,18 @@ export function QuizCarousel({
     }
   }
 
-  let imageChoiceQuestionString;
   const questionCursorIndexThatImageQuestionsStartFrom =
     slidesToRender - imageChoiceQuestionsState;
 
-  if (questionCursor >= questionCursorIndexThatImageQuestionsStartFrom) {
-    imageChoiceQuestionString =
-      imageChoiceQuestionStringArray[
-        questionCursor - questionCursorIndexThatImageQuestionsStartFrom
-      ];
-  }
+  useEffect(() => {
+    if (questionCursor >= questionCursorIndexThatImageQuestionsStartFrom) {
+      setImageChoiceQuestionString(
+        imageChoiceQuestionStringArray[
+          questionCursor - questionCursorIndexThatImageQuestionsStartFrom
+        ]
+      );
+    }
+  }, [questionCursor]);
 
   return (
     <Box position="relative">
@@ -194,7 +197,7 @@ export function QuizCarousel({
         variant="h5"
         ml="50%"
         top="-6rem"
-        mt={{ xs: '9rem', lg: '1rem' }}
+        mt={{ xs: '9rem', lg: '5rem' }}
         position="absolute"
         sx={{ transform: 'translate(-50%, 0)' }}
       >

@@ -1,0 +1,103 @@
+{
+  "data": {
+    "getTrueFalseCards": [
+      {
+        "question": "Order 66 was a top-secret order identifying all Jedi as traitors to the Galactic Republic.",
+        "__typename": "TrueFalseCard"
+      },
+      {
+        "question": "Count Dooku (Darth Tyranus) was once a Jedi.",
+        "__typename": "TrueFalseCard"
+      },
+      {
+        "question": "The planet Hoth had a hot and arid climate.",
+        "__typename": "TrueFalseCard"
+      },
+      {
+        "question": "Jango Fett was killed by Yoda.",
+        "__typename": "TrueFalseCard"
+      },
+      {
+        "question": "The cockpit of the The Millennium Falcon is on its right-hand side.",
+        "__typename": "TrueFalseCard"
+      },
+      {
+        "question": "Qui-Gon Jinn was responsible for the creation of the clone army.",
+        "__typename": "TrueFalseCard"
+      }
+    ],
+    "getMultipleChoiceCards": [
+      {
+        "question": "What planet was the birthplace of Anakin Skywalker/Darth Vader?",
+        "answers": ["Coruscant", "Kamino", "Naboo", "Tatooine"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "What was Chancellor Palpatine's first name?",
+        "answers": ["Hugo", "Ki'an", "Malak", "Sheev"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "Boss Nass was the leader of which civilization?",
+        "answers": ["Ewoks", "Gungans", "Mon Calamari", "Wookies"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "In Episode III: 'Revenge of the Sith,' on which planet did the final battle between Obi-Wan and Anakin take place?",
+        "answers": ["Coruscant", "Exegol", "Korriban", "Mustafar"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "What planet was the homeworld of the Wookies?",
+        "answers": ["Geonosis", "Kamino", "Kashyyyk", "Yavin"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "What colour was Obi-Wan Kenobi's lightsaber?",
+        "answers": ["Blue", "Green", "Purple", "Yellow"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "Which planet was destroyed by the Death Star?",
+        "answers": ["Alderaan", "Dagobah", "Dantooine", "Endor"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "What species was Darth Maul?",
+        "answers": ["Human", "Rodian", "Twi'lek", "Zabrak"],
+        "__typename": "MultipleChoiceCard"
+      },
+      {
+        "question": "Who killed Jabba the Hutt?",
+        "answers": [
+          "Han Solo",
+          "Lando Calrissian",
+          "Leia Organa",
+          "Luke Skywalker"
+        ],
+        "__typename": "MultipleChoiceCard"
+      }
+    ],
+    "getImageChoiceCards": [
+      {
+        "question": "Which of the below characters is Ahsoka Tano?",
+        "images": ["QWhzb2th.webp", "QmFycmlzcw.webp", "U2hhYWsgVGk.webp"],
+        "__typename": "ImageChoiceCard"
+      },
+      {
+        "question": "Which of the below characters is Viceroy Nute Gunray?",
+        "images": [
+          "QmFpbCBPcmdhbmE.webp",
+          "TGFtYSBTdQ.webp",
+          "TnV0ZSBHdW5yYXk.jpg"
+        ],
+        "__typename": "ImageChoiceCard"
+      },
+      {
+        "question": "Which of the below characters is Snoke?",
+        "images": ["U2VidWxiYQ.webp", "U25va2U.webp", "V2F0dG8.webp"],
+        "__typename": "ImageChoiceCard"
+      }
+    ]
+  }
+}

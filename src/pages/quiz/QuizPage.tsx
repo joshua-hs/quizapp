@@ -1,7 +1,7 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { Grid, Typography } from '@mui/material';
 import {
   ACTIONS,
@@ -13,9 +13,15 @@ import { LoadingIndicator } from '../../components/LoadingIndicator';
 import { QuizCarousel } from '../../components/QuizCarousel';
 import 'animate.css';
 import { GradientText } from '../../components/GradientText';
+import { LinearProgressBar } from '../../components/ProgressBar';
 
 export function QuizPage() {
   const { topic } = useParams();
+
+  const location: any = useLocation();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { color } = location.state;
 
   const topicStringNoWhiteSpace = topic?.toLowerCase().replace(/ /g, '');
 
@@ -34,7 +40,12 @@ export function QuizPage() {
     questionCursor,
     maxQuestionCursorAchieved,
     visibleQuestionsAnswered,
+    slidesToRender,
   } = quizState;
+
+  const [progressBarValue, setProgressBarValue] = useState(
+    (maxQuestionCursorAchieved / slidesToRender) * 100 || 0
+  );
 
   function navigateToResultsPage() {
     const { userAnswersPayload } = quizState;
@@ -51,16 +62,20 @@ export function QuizPage() {
         type: ACTIONS.INCREMENT_QUESTION_CURSOR,
       });
       dispatch({ type: ACTIONS.RESET_VISIBLE_QUESTIONS_ANSWERED });
-
+      // Make users' device will scroll back to top of page (this will only make a difference to users viewing the app on mobile)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       forwardNavigationButton.click();
     }
+    setProgressBarValue(
+      (maxQuestionCursorAchieved / slidesToRender) * 100 || 0
+    );
   }, [visibleQuestionsAnswered]);
 
   const { loading, error, data } = useQuery(GET_QUIZ_CARDS, {
     variables: { topic },
   });
 
-  if (loading) return <LoadingIndicator />;
+  if (loading) return <LoadingIndicator text="Retrieving quiz data..." />;
   if (error) return <p>Error :{error.message}</p>;
 
   const questionsArray = [
@@ -77,9 +92,9 @@ export function QuizPage() {
   return (
     <Grid
       container
+      justifyContent="center"
+      alignItems="center"
       sx={{
-        justifyContent: 'center',
-        alignItems: 'center',
         minHeight: '100vh',
         maxHeight: '100%',
         marginTop: '-3rem',
@@ -98,12 +113,26 @@ export function QuizPage() {
         </Typography>
         <GradientText>{topic}</GradientText>
       </Grid>
+      <Grid
+        item
+        color={color}
+        xs={8}
+        marginTop="4rem"
+        marginBottom="4rem"
+        display={{ xs: 'block', lg: 'none' }}
+      >
+        <LinearProgressBar
+          className="fadeIn"
+          color="inherit"
+          value={progressBarValue}
+        />
+      </Grid>
       {questionsArray && topicStringNoWhiteSpace && (
         <Grid
           className="animate__animated animate__fadeInUp"
           item
           xs={12}
-          sx={{ paddingBottom: '6rem' }}
+          marginBottom={{ xs: '4rem', lg: 'none' }}
         >
           <QuizCarousel
             questionCursor={questionCursor}
@@ -114,6 +143,19 @@ export function QuizPage() {
           />
         </Grid>
       )}
+      <Grid
+        item
+        color={color}
+        xs={11}
+        lg={8}
+        display={{ xs: 'none', lg: 'block' }}
+      >
+        <LinearProgressBar
+          className="fadeIn"
+          color="inherit"
+          value={progressBarValue}
+        />
+      </Grid>
     </Grid>
   );
 }

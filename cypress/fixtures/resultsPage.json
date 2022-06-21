@@ -1,0 +1,156 @@
+{
+  "data": {
+    "createQuizAttempt": {
+      "score": 6,
+      "answers": [
+        {
+          "question": "Order 66 was a top-secret order identifying all Jedi as traitors to the Galactic Republic.",
+          "userAnswer": "true",
+          "userWasCorrect": true,
+          "correctAnswer": "true",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Count Dooku (Darth Tyranus) was once a Jedi.",
+          "userAnswer": "true",
+          "userWasCorrect": true,
+          "correctAnswer": "true",
+          "__typename": "Answers"
+        },
+        {
+          "question": "The planet Hoth had a hot and arid climate.",
+          "userAnswer": "true",
+          "userWasCorrect": false,
+          "correctAnswer": "false",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Jango Fett was killed by Yoda.",
+          "userAnswer": "true",
+          "userWasCorrect": false,
+          "correctAnswer": "false",
+          "__typename": "Answers"
+        },
+        {
+          "question": "The cockpit of the The Millennium Falcon is on its right-hand side.",
+          "userAnswer": "true",
+          "userWasCorrect": true,
+          "correctAnswer": "true",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Qui-Gon Jinn was responsible for the creation of the clone army.",
+          "userAnswer": "true",
+          "userWasCorrect": false,
+          "correctAnswer": "false",
+          "__typename": "Answers"
+        },
+        {
+          "question": "What planet was the birthplace of Anakin Skywalker/Darth Vader?",
+          "userAnswer": "Coruscant",
+          "userWasCorrect": false,
+          "correctAnswer": "Tatooine",
+          "__typename": "Answers"
+        },
+        {
+          "question": "What was Chancellor Palpatine's first name?",
+          "userAnswer": "Hugo",
+          "userWasCorrect": false,
+          "correctAnswer": "Sheev",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Boss Nass was the leader of which civilization?",
+          "userAnswer": "Ewoks",
+          "userWasCorrect": false,
+          "correctAnswer": "Gungans",
+          "__typename": "Answers"
+        },
+        {
+          "question": "In Episode III: 'Revenge of the Sith,' on which planet did the final battle between Obi-Wan and Anakin take place?",
+          "userAnswer": "Coruscant",
+          "userWasCorrect": false,
+          "correctAnswer": "Mustafar",
+          "__typename": "Answers"
+        },
+        {
+          "question": "What planet was the homeworld of the Wookies?",
+          "userAnswer": "Geonosis",
+          "userWasCorrect": false,
+          "correctAnswer": "Kashyyyk",
+          "__typename": "Answers"
+        },
+        {
+          "question": "What colour was Obi-Wan Kenobi's lightsaber?",
+          "userAnswer": "Blue",
+          "userWasCorrect": true,
+          "correctAnswer": "Blue",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Which planet was destroyed by the Death Star?",
+          "userAnswer": "Alderaan",
+          "userWasCorrect": true,
+          "correctAnswer": "Alderaan",
+          "__typename": "Answers"
+        },
+        {
+          "question": "What species was Darth Maul?",
+          "userAnswer": "Human",
+          "userWasCorrect": false,
+          "correctAnswer": "Zabrak",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Who killed Jabba the Hutt?",
+          "userAnswer": "Han Solo",
+          "userWasCorrect": false,
+          "correctAnswer": "Leia Organa",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Which of the below characters is Ahsoka Tano?",
+          "userAnswer": "QWhzb2th",
+          "userWasCorrect": true,
+          "correctAnswer": "QWhzb2th",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Which of the below characters is Viceroy Nute Gunray?",
+          "userAnswer": "QmFpbCBPcmdhbmE",
+          "userWasCorrect": false,
+          "correctAnswer": "TnV0ZSBHdW5yYXk",
+          "__typename": "Answers"
+        },
+        {
+          "question": "Which of the below characters is Snoke?",
+          "userAnswer": "U2VidWxiYQ",
+          "userWasCorrect": false,
+          "correctAnswer": "U25va2U",
+          "__typename": "Answers"
+        }
+      ],
+      "statements": [
+        "Order 66 was programmed into the Grand Army clone troopers through behavioural modification biochips implanted into their brains, making it almost impossible for the clones to disobey the command to turn against their Jedi Generals.",
+        "Dooku was taken by the Jedi Order after being abandoned by his family and became a Padawan of Yoda. The corruption in the Galactic Senate as well as certain traditions of the Jedi disillusioned him, and he eventually left the Order.",
+        "Hoth was a remote, icy planet where temperatures fell to -60°C at night.",
+        "Jango Fett was killed by Mace Windu on Geonosis. Fett attempted to flee from the Jedi using his jetpack but it had been damaged earlier, rendering him immobile.",
+        "The Millennium Falcon was a modified version of a freighter ship. Its side-mounted cockpit and front-facing mandibles allowed it to push containers.",
+        "The creation of the clone army was commissioned by a Jedi Master called Sifo-Dyas. Sifo-Dyas foresaw a coming war but felt that the Galactic Republic was underequipped, and so proposed his idea of a clone army. The proposal was rejected by the Jedi Council, but he pursued his idea in secret nonetheless. He was eventually killed and his plans were taken over by Darth Sidious, who modified the clones to recognise Order 66.",
+        "Anakin Skywalker was born on Tatooine as the son of a slave who conceived a child without a father.",
+        "Sheev Palpatine was born on Naboo to an affluent family. He was introduced to the ways of the dark side by Darth Plagueis, a Sith Lord who doubled as a wealthy banker.",
+        "Boss Nass was the leader of the Gungan people, an amphibious species and native inhabitants of the planet Naboo. ",
+        "The final duel took place on Mustafar, a volcanic planet where Palpatine had sent Anakin to kill the Separatist Council and end the Clone Wars. Anakin was confronted by Obi-Wan and Padmé but was convinced that they were his enemies, and thus the iconic duel began.",
+        "Kashyyyk was a temperate jungle planet. The planet had three moons and no seasons due to a lack of axial tilt and a perfectly circular orbit.",
+        "Thousands of years before the events of the Skywalker Saga, lightsaber crystals were used to indicate a Jedi's chosen class. Blue indicated a Jedi Guardian, a Jedi who used the Force on a more physical level. Green indicated a Jedi Consular, a Jedi who preferred to reflect on the mysteries of the Force. This distinction fell out of practice in later years, when most Jedi simply used whichever colour they preferred.",
+        "Alderaan was destroyed as punishment for supporting the Rebel Alliance, and the Empire hoped that its destruction would prevent other worlds from also supporting the rebels.",
+        "Darth Maul was a Zabrak born on the planet Dathomir. He secretly survived his iconic battle against Obi-Wan Kenobi and Qui-Gon Jinn, and became a powerful crime lord.",
+        "As Jabba attempted to execute Luke Skywalker and his allies at the Sarlacc Pit, Leia choked him to death using a chain.",
+        "Ahsoka Tano was the Padawan of Anakin Skywalker. She left the Jedi Order after being framed for the bombing of the Jedi Temple. During Order 66, she faked her death and went into hiding, eventually meeting the Mandalorian Din Djarin and Luke Skywalker.",
+        "Nute Gunray served as the Viceroy of the Trade Federation and was a high-ranking member of the Separatist movement. He led the Trade Federation through its invasion of the planet Naboo, and was killed by Darth Vader on Mustafar during Order 66.",
+        "Snoke was an artificial genetic construct created on the planet Exegol by Darth Sidious. He was the Supreme Leader of the First Order, and was killed by Kylo Ren who wished to take the title of Supreme Leader for himself."
+      ],
+      "__typename": "QuizAttempt"
+    }
+  }
+}

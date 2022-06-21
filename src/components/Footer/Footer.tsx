@@ -6,7 +6,7 @@ import { ReactComponent as MongoLogo } from '../../assets/mongodb-icon-1.svg';
 import { ReactComponent as NodeLogo } from '../../assets/nodejs-icon.svg';
 import { ReactComponent as ApolloLogo } from '../../assets/apollo-graphql-1.svg';
 
-export default function Footer() {
+export function Footer() {
   const openSourceLogoArray = [
     { Logo: ReactLogo, href: 'https://reactjs.org/' },
     { Logo: GraphQLLogo, href: 'https://graphql.org/' },

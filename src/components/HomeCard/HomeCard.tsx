@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 import { StyledButton } from '../StyledButton';
 
 export interface HomeCardProps {
@@ -44,13 +45,18 @@ export function HomeCard({ title, imageURL, buttonColour }: HomeCardProps) {
       </CardContent>
       <CardMedia component="img" image={imageURL} />
       <CardActions sx={{ justifyContent: 'center' }}>
-        <StyledButton
-          primarycolor={buttonColour}
-          href={`/quiz/${title}`}
-          sx={{ position: 'absolute', bottom: '30px' }}
+        <Link
+          to={`/quiz/${title}`}
+          state={{ color: extractedHexCodes[1] }}
+          style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
         >
-          Begin Quiz
-        </StyledButton>
+          <StyledButton
+            primarycolor={buttonColour}
+            sx={{ position: 'absolute', bottom: '30px' }}
+          >
+            Begin Quiz
+          </StyledButton>
+        </Link>
       </CardActions>
     </Card>
   );

@@ -9,8 +9,13 @@ export default {
   component: LoadingIndicator,
 } as ComponentMeta<typeof LoadingIndicator>;
 
-const Template: ComponentStory<typeof LoadingIndicator> = () => (
-  <LoadingIndicator />
+const Template: ComponentStory<typeof LoadingIndicator> = (args) => (
+  <LoadingIndicator {...args} />
 );
 
-export const Default = Template.bind({});
+export const WithoutText = Template.bind({});
+
+export const WithText = Template.bind({});
+WithText.args = {
+  text: 'Sample text...',
+};

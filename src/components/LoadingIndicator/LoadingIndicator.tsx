@@ -3,7 +3,15 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Typography, Stack } from '@mui/material';
 
-export function LoadingIndicator() {
+interface LoadingIndicatorProps {
+  text?: string;
+}
+
+const defaultProps = {
+  text: '',
+};
+
+export function LoadingIndicator({ text }: LoadingIndicatorProps) {
   return (
     <div>
       <Backdrop
@@ -11,12 +19,14 @@ export function LoadingIndicator() {
         open
       >
         <Stack direction="column" alignItems="center" spacing={3}>
-          <Typography align="center" variant="h5">
-            Spinning up back-end (this might take a few seconds)...
-          </Typography>
           <CircularProgress color="inherit" />
+          <Typography align="center" variant="h5">
+            {text}
+          </Typography>
         </Stack>
       </Backdrop>
     </div>
   );
 }
+
+LoadingIndicator.defaultProps = defaultProps;

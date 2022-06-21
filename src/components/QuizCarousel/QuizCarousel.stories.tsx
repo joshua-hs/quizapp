@@ -5,7 +5,7 @@ import './quizCarouselStyles.css';
 import { QuizCarousel } from '.';
 
 export default {
-  title: 'Shared/QuizCarousel',
+  title: 'QuizPage/QuizCarousel',
   component: QuizCarousel,
 } as ComponentMeta<typeof QuizCarousel>;
 

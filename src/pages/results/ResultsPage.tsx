@@ -20,7 +20,7 @@ export function ResultsPage() {
     attemptQuiz();
   }, []);
 
-  if (loading) return <LoadingIndicator />;
+  if (loading) return <LoadingIndicator text="Retrieving results..." />;
   if (error) return <p>Error : {error.message}</p>;
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Grid } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 import { HomeCardRow } from '.';
 
 export default {
@@ -9,17 +10,19 @@ export default {
 } as ComponentMeta<typeof HomeCardRow>;
 
 const Template: ComponentStory<typeof HomeCardRow> = (args) => (
-  <Grid
-    container
-    spacing={4}
-    sx={{
-      paddingTop: '25vh',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-  >
-    <HomeCardRow {...args} />
-  </Grid>
+  <BrowserRouter>
+    <Grid
+      container
+      spacing={4}
+      sx={{
+        paddingTop: '25vh',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <HomeCardRow {...args} />
+    </Grid>
+  </BrowserRouter>
 );
 
 export const Default = Template.bind({});

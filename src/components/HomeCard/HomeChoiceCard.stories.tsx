@@ -1,6 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 import { HomeCard } from '.';
 
 export default {
@@ -9,7 +10,9 @@ export default {
 } as ComponentMeta<typeof HomeCard>;
 
 const Template: ComponentStory<typeof HomeCard> = (args) => (
-  <HomeCard {...args} />
+  <BrowserRouter>
+    <HomeCard {...args} />
+  </BrowserRouter>
 );
 
 // Template.bind({}) just copies template function above
