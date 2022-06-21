@@ -1,9 +1,8 @@
 describe('e2e test', () => {
   it('Loads home page correctly', () => {
-    cy.intercept(
-      { method: 'POST', url: 'http://*' },
-      { fixture: 'homePage.json' }
-    ).as('getHomeCards');
+    cy.intercept({ method: 'POST', url: '*' }, { fixture: 'homePage.json' }).as(
+      'getHomeCards'
+    );
 
     cy.visit('http://localhost:3000/');
     cy.wait('@getHomeCards');
@@ -11,10 +10,9 @@ describe('e2e test', () => {
     cy.contains('Welcome!');
   });
   it('Loads quiz page correctly', () => {
-    cy.intercept(
-      { method: 'POST', url: 'http://*' },
-      { fixture: 'quizPage.json' }
-    ).as('getQuizCards');
+    cy.intercept({ method: 'POST', url: '*' }, { fixture: 'quizPage.json' }).as(
+      'getQuizCards'
+    );
 
     cy.contains('Begin Quiz').click();
     cy.wait('@getQuizCards');
@@ -23,7 +21,7 @@ describe('e2e test', () => {
   });
   it('Navigates through quiz page and displays results correctly', () => {
     cy.intercept(
-      { method: 'POST', url: 'http://*' },
+      { method: 'POST', url: '*' },
       { fixture: 'resultsPage.json' }
     ).as('getResults');
     cy.get('button').each(($item) => {
@@ -33,10 +31,9 @@ describe('e2e test', () => {
     cy.contains('You scored 6/18');
   });
   it('Returns to home page correctly', () => {
-    cy.intercept(
-      { method: 'POST', url: 'http://*' },
-      { fixture: 'homePage.json' }
-    ).as('returnToHomePage');
+    cy.intercept({ method: 'POST', url: '*' }, { fixture: 'homePage.json' }).as(
+      'returnToHomePage'
+    );
     cy.contains('Back to homepage').click();
     cy.wait('@returnToHomePage');
     cy.contains('Welcome!');
