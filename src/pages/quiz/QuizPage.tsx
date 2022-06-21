@@ -62,9 +62,9 @@ export function QuizPage() {
         type: ACTIONS.INCREMENT_QUESTION_CURSOR,
       });
       dispatch({ type: ACTIONS.RESET_VISIBLE_QUESTIONS_ANSWERED });
+      forwardNavigationButton.click();
       // Make users' device will scroll back to top of page (this will only make a difference to users viewing the app on mobile)
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      forwardNavigationButton.click();
     }
     setProgressBarValue(
       (maxQuestionCursorAchieved / slidesToRender) * 100 || 0
