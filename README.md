@@ -1,6 +1,6 @@
 # A simple quiz website.
 
-- Live demo available [here](https://tsquizproject.netlify.app/).
+- ~~Live demo available [here](https://tsquizproject.netlify.app/).~~ Unfortunately no longer available as Heroku ended their free tier
 
 ![image](https://user-images.githubusercontent.com/10779091/173256398-62cfea67-5c3a-4570-bbf8-af63e931b441.png)
 
